@@ -1,0 +1,27 @@
+{
+  "name": "m365-bookings",
+  "version": "1.0.0",
+  "description": "Microsoft 365 Bookings MCP Server",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "m365-bookings": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
