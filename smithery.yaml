@@ -1,0 +1,37 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - microsoftGraphClientId
+      - microsoftGraphClientSecret
+      - microsoftGraphTenantId
+    properties:
+      microsoftGraphClientId:
+        type: string
+        description: Azure AD Application Client ID
+      microsoftGraphClientSecret:
+        type: string
+        description: Azure AD Application Client Secret
+      microsoftGraphTenantId:
+        type: string
+        description: Azure AD Tenant ID
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: {
+        MICROSOFT_GRAPH_CLIENT_ID: config.microsoftGraphClientId,
+        MICROSOFT_GRAPH_CLIENT_SECRET: config.microsoftGraphClientSecret,
+        MICROSOFT_GRAPH_TENANT_ID: config.microsoftGraphTenantId
+      }
+    })
+  exampleConfig:
+    microsoftGraphClientId: dummy-client-id
+    microsoftGraphClientSecret: dummy-client-secret
+    microsoftGraphTenantId: dummy-tenant-id
