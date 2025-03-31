@@ -1,4 +1,5 @@
 # Microsoft 365 Bookings MCP Server
+[![smithery badge](https://smithery.ai/badge/@DynamicEndpoints/m365-bookings-mcp)](https://smithery.ai/server/@DynamicEndpoints/m365-bookings-mcp)
 
 An MCP server that provides tools for interacting with Microsoft Bookings through the Microsoft Graph API.
 
@@ -11,6 +12,15 @@ An MCP server that provides tools for interacting with Microsoft Bookings throug
 
 ## Setup
 
+### Installing via Smithery
+
+To install Microsoft 365 Bookings for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@DynamicEndpoints/m365-bookings-mcp):
+
+```bash
+npx -y @smithery/cli install @DynamicEndpoints/m365-bookings-mcp --client claude
+```
+
+### Manual Installation
 1. Create an Azure AD application registration:
    - Go to Azure Portal > Azure Active Directory > App registrations
    - Create a new registration
